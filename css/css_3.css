@@ -1,0 +1,37 @@
+/* latin-ext */
+@font-face {
+  font-family: 'Oleo Script Swash Caps';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Oleo Script Swash Caps Bold'), local('OleoScriptSwashCaps-Bold'), url(../fonts/HMO3ftxA9AU5floml9c750d5iZCInoVMVw6kxDarCyPY9NKr8GuxSFlSgzspqPQw.woff) format('woff');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Oleo Script Swash Caps';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Oleo Script Swash Caps Bold'), local('OleoScriptSwashCaps-Bold'), url(../fonts/HMO3ftxA9AU5floml9c756HPCue0Y9p7kwQ7JKlwkwk_BNIuymZ_hD58qNx2bu5M.woff) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+/*
+     FILE ARCHIVED ON 16:29:49 Oct 28, 2017 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 17:42:19 Feb 10, 2020.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  exclusion.robots.policy: 0.171
+  PetaboxLoader3.datanode: 210.78 (4)
+  CDXLines.iter: 13.041 (3)
+  LoadShardBlock: 234.909 (3)
+  esindex: 0.011
+  load_resource: 77.648
+  captures_list: 260.096
+  exclusion.robots: 0.18
+  RedisCDXSource: 5.376
+*/

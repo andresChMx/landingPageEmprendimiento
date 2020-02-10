@@ -1,0 +1,39 @@
+@media only screen and (max-device-width: 1024px) {
+	body {
+		zoom: 60%;
+	}
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { 
+	body,
+	.menu,
+	.footer {
+		zoom: 100%;
+	}
+}
+/*
+a:-webkit-any-link{
+text-decoration:none !important;
+}
+*/
+/*
+     FILE ARCHIVED ON 19:03:24 Sep 05, 2015 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 17:39:14 Feb 10, 2020.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  exclusion.robots: 0.366
+  exclusion.robots.policy: 0.344
+  RedisCDXSource: 2.293
+  CDXLines.iter: 12.866 (3)
+  LoadShardBlock: 164.875 (3)
+  PetaboxLoader3.datanode: 246.907 (4)
+  esindex: 0.017
+  PetaboxLoader3.resolve: 54.764
+  captures_list: 183.848
+  load_resource: 167.33
+*/

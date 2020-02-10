@@ -1,0 +1,36 @@
+.zopim:nth-child(1) {
+
+	
+}
+.zopim:nth-child(2) {
+	width:267px !important; 
+	height:373px !important; 
+}
+@-moz-document url-prefix() {
+	.zopim:nth-child(2) {
+		width: 241px !important;
+		height: 335px !important;
+	}
+}
+
+/*
+     FILE ARCHIVED ON 20:32:45 Sep 05, 2015 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 17:39:13 Feb 10, 2020.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  exclusion.robots: 0.236
+  exclusion.robots.policy: 0.221
+  RedisCDXSource: 2.617
+  CDXLines.iter: 15.364 (3)
+  LoadShardBlock: 79.193 (3)
+  PetaboxLoader3.datanode: 143.204 (4)
+  esindex: 0.018
+  PetaboxLoader3.resolve: 41.646
+  captures_list: 101.272
+  load_resource: 118.383
+*/
