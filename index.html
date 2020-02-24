@@ -3,6 +3,8 @@
 <html >
 
 <head>
+		<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-analytics.js"></script>
 	<script src="js/analytics.js" type="text/javascript"></script>
 	<script
 		type="text/javascript">window.addEventListener('DOMContentLoaded', function () { var v = archive_analytics.values; v.service = 'wb'; v.server_name = 'wwwb-app105.us.archive.org'; v.server_ms = 217; archive_analytics.send_pageview({}); });</script>
@@ -16,6 +18,7 @@
 	<script type="text/javascript">
 		__wbhack.init('https://web.archive.org/web');
 	</script>
+	<link rel="stylesheet" href="css/misestilos.css">
 	<link rel="stylesheet" type="text/css" href="css/banner-styles.css">
 	<link rel="stylesheet" type="text/css" href="css/iconochive.css">
 	<!-- End Wayback Rewrite JS Include -->
@@ -488,6 +491,24 @@
 				</div>
 			</div>
 		</div>
+		<div class="row hoehetwerkt">
+		<section class="comments" id="">
+				<div class="secction__title">
+					<h1>Comentarios</h1>
+				</div>
+				<div class="comment-form">
+					<textarea name="" id="comment-form__content" class="comment-form__content" cols="30" rows="10" placeholder="Agregar un comentario..."></textarea>
+					<div class="comment-form__row clearfix">
+							<input type="text" class="comment-form__name" placeholder="Tu Email (opcional)">
+							<input type="text" class="comment-form__email" placeholder="Tu Nombre">
+							<button class="coment-form__button-submit">Enviar</button>
+					</div>
+
+				</div>
+				<div class="comments-container">
+				</div>
+			</section>
+		</div>
 		<div class="row footer"  style="display:flex; align-items: center; background:#323333">
 			<div class="footerContainer" style="display:flex; padding:0; align-items: center;">
 				<!--
@@ -523,6 +544,119 @@
 				</span>
 			</div>
 		</div>
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-firestore.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBJ-C4Wbutdcn7WezFJyV_Uk0rm0pnQ7YY",
+    authDomain: "viewmywindow-ce6b5.firebaseapp.com",
+    databaseURL: "https://viewmywindow-ce6b5.firebaseio.com",
+    projectId: "viewmywindow-ce6b5",
+    storageBucket: "viewmywindow-ce6b5.appspot.com",
+    messagingSenderId: "673908708351",
+    appId: "1:673908708351:web:2e0394e696b4f543fb0dca",
+    measurementId: "G-S3ZBTDF7K5"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+		<script>
+			var db=firebase.firestore();
+			let commentFormContent=document.getElementById("comment-form__content");
+			let commentFormName=document.querySelector(".comment-form__name");
+			let commentFormEmail=document.querySelector(".comment-form__email");
+			let btnSubmitComment=document.querySelector(".coment-form__button-submit");
+
+			let commentContainer=document.querySelector(".comments-container");
+			window.addEventListener("DOMContentLoaded",init);
+			function init(){
+				btnSubmitComment.addEventListener("click",function(){
+					if(commentFormContent.value != "" && commentFormName.value != ""){
+						let date=new Date();		
+						let email=commentFormEmail.value;
+						db.collection("comentarios").add({
+							nombre:commentFormName.value,
+							date:date,
+							comentario:commentFormContent.value,
+							email:email
+						}).then((res)=>{
+							createComment(date,commentFormName.value,commentFormContent.value,true);
+							commentFormContent.value="";
+							commentFormName.value="";
+							commentFormEmail.value="";
+						})
+					}else{
+						alert("Complete los campos obligatorios");
+					}
+				});
+				fetchComments();
+
+			}
+			function fetchComments(){
+				db.collection("comentarios").get().then((data)=>{
+					data.docs.forEach(doc=>{
+						let tmp=doc.data();
+						console.log(tmp);
+						createComment(tmp.date,tmp.nombre,tmp.comentario);
+					})
+				})
+			}
+			function createComment(date,name,content,isRecentlyAdded=false){
+				let comment=document.createElement("div");
+				comment.setAttribute("class","comment");
+
+
+				let commentCaption=document.createElement("img");
+				commentCaption.setAttribute("class","comment__caption");
+				commentCaption.setAttribute("src","images/person-icon.png");
+
+				let commentDate=document.createElement("p");
+				commentDate.setAttribute("class","comment__date");
+
+				let commentRow=document.createElement("div");
+				commentRow.setAttribute("class","comment__row");
+
+				let commentName=document.createElement("p");
+				commentName.setAttribute("class","comment__name");
+
+				let commentContent=document.createElement("p");
+				commentContent.setAttribute("class","comment__content");
+				
+				let date1=date;
+				if(!isRecentlyAdded){
+					date1=date1.toDate();
+				}
+				let date2=new Date();
+				const diffTime = Math.abs(date2 - date1);
+				const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24)); 	
+				if(diffDays==0){
+					commentDate.textContent="Hace unos segundos";
+				}else if(diffDays==1){
+					commentDate.textContent="Hace " + diffDays + " día";
+				}else{
+					commentDate.textContent="Hace " + diffDays + " días";
+				}
+				commentName.textContent=name;
+				commentContent.textContent=content;
+
+
+				commentRow.appendChild(commentName);
+				commentRow.appendChild(commentDate);
+				commentRow.appendChild(commentContent);
+				comment.appendChild(commentCaption);
+				comment.appendChild(commentRow);
+				commentContainer.appendChild(comment);
+			}
+		</script>
 	</div>
 	<script>
 	</script>

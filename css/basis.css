@@ -27,6 +27,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+	min-width:1200px !important;
 	line-height: 1;
 	zoom: 90%;
 	-webkit-font-smoothing:antialiased;
