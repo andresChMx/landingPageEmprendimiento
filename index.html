@@ -3,8 +3,6 @@
 <html >
 
 <head>
-		<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-analytics.js"></script>
 	<script src="js/analytics.js" type="text/javascript"></script>
 	<script
 		type="text/javascript">window.addEventListener('DOMContentLoaded', function () { var v = archive_analytics.values; v.service = 'wb'; v.server_name = 'wwwb-app105.us.archive.org'; v.server_ms = 217; archive_analytics.send_pageview({}); });</script>
@@ -582,7 +580,11 @@
 				btnSubmitComment.addEventListener("click",function(){
 					if(commentFormContent.value != "" && commentFormName.value != ""){
 						let date=new Date();		
+						
 						let email=commentFormEmail.value;
+						if(email==""){
+							email="none"
+						}
 						db.collection("comentarios").add({
 							nombre:commentFormName.value,
 							date:date,
@@ -602,12 +604,16 @@
 
 			}
 			function fetchComments(){
+
 				db.collection("comentarios").get().then((data)=>{
-					data.docs.forEach(doc=>{
-						let tmp=doc.data();
+					console.log(data.docs.length);
+					for(var i=0;i<data.docs.length;i++){
+						console.log(i);
+						let tmp=data.docs[i].data();
 						console.log(tmp);
 						createComment(tmp.date,tmp.nombre,tmp.comentario);
-					})
+					}
+
 				})
 			}
 			function createComment(date,name,content,isRecentlyAdded=false){
