@@ -309,7 +309,7 @@
 							</div>
 							<div class="row">
 	
-								<button type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Regístrarse</font></font><img src="images/arrow.png" class="float-right" alt="Anuncie con Ventana Indiscreta
+								<button type="submit" onclick="submitEmail()"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Regístrarse</font></font><img src="images/arrow.png" class="float-right" alt="Anuncie con Ventana Indiscreta
 	"></button>
 	
 							</div>
@@ -444,6 +444,7 @@
 				</div>
 			</div>
 		</div>
+		<!--
 		<div class="row statistiek">
 			<div class="row redOverlay">
 				<div class="statistiekHolder">
@@ -452,7 +453,7 @@
 						<hr class="whitelinethingy">
 					</div>
 					<div class="row">
-						<!--<div class="block circle circle-first">
+						<div class="block circle circle-first">
 								<div class="number">238</div>
 								<span>Ramen</span>
 							</div>
@@ -467,7 +468,7 @@
 							<div class="block circle circle-last">
 								<div class="number">65 </div>
 								<span>Adverteerders</span>
-							</div>--->
+							</div>
 
 						<span class="chart block chart-first" data-percent="100">
 							<div class="number" n="548">548</div>
@@ -489,6 +490,41 @@
 				</div>
 			</div>
 		</div>
+	-->
+		<div class="row support">
+				<div class="supportContainer">
+					<h1>Preguntas Frecuentes</h1>
+					<hr class="orangelinethingy">
+					<p style="margin-bottom: 0px;"> A continuación encontrará las preguntas más frecuentes realizadas por los usuarios </p><br>
+						
+						
+					<div class="block block-row">
+						<div class="block block-50">
+							<h3>¿Qué tipo de etiqueta publicitaria está pegada en mi ventana?</h3>
+							<p>
+									El adhesivo publicitario que colocamos en su ventana es un adhesivo especial que cubre toda la ventana, con impresión en el lado adhesivo. La pegatina está pegada en el interior de su ventana con un anuncio a todo color en el frente. Debido a que la etiqueta del anuncio consta de cientos de pequeños agujeros, se conserva la vista hacia el exterior.							</p>
+							<h3 style="margin-top:52px">¿Cuándo comenzaré a ganar dinero?</h3>
+							<p>
+									Después de su registro, recibirá una confirmación y una indicación de la tarifa mensual de nosotros por correo electrónico. Después de esto, buscaremos un anunciante adecuado para las ventanas que especificó. Cuando esto haya sucedido, colocaremos una pegatina publicitaria en su ventana.
+									En otras palabras: desde el momento en que se coloca la etiqueta del anuncio en su ventana, comienza a ganar dinero.							</p>
+						</div>	
+					</div>
+					<div class="block block-row">
+						<div class="block block-50">
+							<h3>¿Puedo elegir el tipo de anuncio?</h3>
+							<p>
+									Lamentablemente, no es posible elegir el anuncio usted mismo. La razón de esto es que los anunciantes deciden por sí mismos en qué ubicaciones quieren anunciar. Por supuesto, tenemos una política estricta con respecto a la publicidad. Por ejemplo, nunca se colocarán anuncios discriminatorios o sexistas en la ventana.							</p>
+							<h3 style="margin-top:78px;">¿Cuales son los requisitos para registrarme?</h3>
+							<p>
+								Por lo principal, que cuente con una vivienda a su diposicion con ventanas visibles, de preferencia en avenidas transitadas, ya que tiene mayores posibilidades de ser un referente publicitario, y por ello que mas empresas opten por ocupar su ventana
+
+							</p>
+						</div>	
+					</div>	
+				</div>
+			</div>
+
+
 		<div class="row hoehetwerkt">
 		<section class="comments" id="">
 				<div class="secction__title">
@@ -542,8 +578,40 @@
 				</span>
 			</div>
 		</div>
+<!--POPUP-->
 
+<link rel="stylesheet" href="css/popup.css">
 
+<div class="message " >
+		<div class="check ">
+		✔
+		</div>
+		<p>
+		Success
+		</p>
+		<p>
+		Check your email for a booking confirmation. We'll see you soon!
+		</p>
+		<button id="ok">
+		OK
+		</button>
+</div>
+<script>
+	function runPopup(){
+		go(50)
+	}
+	$('#ok').click(function(){go(500)});
+
+	
+	function go(nr) {
+	let filter=document.querySelector(".filter");
+	filter.classList.toggle("filter-active");
+	  $('.bb').fadeToggle(200);
+	  $('.message').toggleClass('comein');
+	  $('.check').toggleClass('scaledown');
+	  $('#go').fadeToggle(nr);
+	}
+	</script>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-firestore.js"></script>
@@ -662,6 +730,11 @@
 				comment.appendChild(commentRow);
 				commentContainer.appendChild(comment);
 			}
+
+			//submitEmail
+			function submitEmail(e){
+				go(50)
+			}
 		</script>
 	</div>
 	<script>
@@ -687,6 +760,7 @@
 		ga('send', 'pageview');
 */
 	</script>
+	<div class="filter"></div>
 </body>
 
 </html>

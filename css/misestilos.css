@@ -1,4 +1,7 @@
-
+.comments{
+    background:rgb(240, 240, 240);
+    padding:10px;
+}
 .comment-form{
     max-width:900px;
     width:100%;
@@ -13,9 +16,12 @@
 }
 
 .comment-form__content{
-    font-size:1.1em;
+    font-family: "Helvetica", "Helvetica Neue", 'Lato', 'Open Sans', sans-serif;
+
+    box-sizing: border-box;
+    font-size:0.7em !important; 
     padding:10px;
-    height:60px;
+    height:70px;
     width:100%;
     box-shadow:1px 1px 4px 1px rgb(177, 177, 177);
 }
@@ -58,14 +64,16 @@
 
 /**/
 .comments-container{
-
+    padding-bottom:20px;
     max-width:900px;
     width:100%;
     margin:20px auto;
 }
 .comment{
+    background:white;
     padding:15px;
     transition:.5s all;
+    margin-bottom:10px;
 }
 .comment:hover{
     background:rgb(230, 230, 230);
@@ -84,7 +92,7 @@
 .comment__name{
     display:inline-block;
     font-weight: bold;
-    font-size:1.1em;
+    font-size:1em;
 }
 .comment__content{
     margin-top:10px;
