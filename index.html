@@ -290,7 +290,8 @@
 
 					<h2>Regístrate ahora!</h2>
 					<div class="aanmeldSlogan">
-							Unete a la lista de espera para ser el primero en saber sobre el lanzamiento de VentanasIndiscretas.
+							
+							Muy pronto conoceras mas sobre el lanzamiento de ViewMyWindow.Registrate para mantenerte al tanto
 					</div>
 
 					<div class="aanmeldenContainer" style="height:auto;">
@@ -304,7 +305,7 @@
 							<div class="row">
 								<div class="block emailBlock" id="aanmeldenEmail">
 									<label class="aanmeldLabel"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Dirección de correo electrónico:</font></font></label>
-									<input type="text" name="email" value="">
+									<input type="text" name="email" value="" class="input-email">
 								</div>
 							</div>
 							<div class="row">
@@ -502,7 +503,7 @@
 						<div class="block block-50">
 							<h3>¿Qué tipo de etiqueta publicitaria está pegada en mi ventana?</h3>
 							<p>
-									El adhesivo publicitario que colocamos en su ventana es un adhesivo especial que cubre toda la ventana, con impresión en el lado adhesivo. La pegatina está pegada en el interior de su ventana con un anuncio a todo color en el frente. Debido a que la etiqueta del anuncio consta de cientos de pequeños agujeros, se conserva la vista hacia el exterior.							</p>
+									El anuncio publicitario que colocamos en su ventana es un adhesivo especial que cubre toda la ventana, con impresión en el lado adhesivo. La pegatina está pegada en el interior de su ventana con un anuncio a todo color en el frente. Debido a que la etiqueta del anuncio consta de cientos de pequeños agujeros, se conserva la vista hacia el exterior.							</p>
 							<h3 style="margin-top:52px">¿Cuándo comenzaré a ganar dinero?</h3>
 							<p>
 									Después de su registro, recibirá una confirmación y una indicación de la tarifa mensual de nosotros por correo electrónico. Después de esto, buscaremos un anunciante adecuado para las ventanas que especificó. Cuando esto haya sucedido, colocaremos una pegatina publicitaria en su ventana.
@@ -587,10 +588,10 @@
 		✔
 		</div>
 		<p>
-		Success
+		Registro Exitoso
 		</p>
 		<p>
-		Check your email for a booking confirmation. We'll see you soon!
+		Usted se ha registrado correctamente
 		</p>
 		<button id="ok">
 		OK
@@ -733,7 +734,27 @@
 
 			//submitEmail
 			function submitEmail(e){
-				go(50)
+				
+				let input=document.querySelector(".input-email");
+				let passRegex=/[\w-_,.]+@[\w]+.[\w]+/.test(input.value);
+				if(input.value==""){
+					alert("Introduzca un correo electronico");
+					return;
+				}
+				if(!passRegex){
+					alert("Formato de correo incorrecto, intentelo otra vez");
+					return;
+				}
+
+					db.collection("correos").add({
+							correo:input.value
+						}).then((res)=>{
+							input.value="";
+							go(50)
+						})
+						
+
+
 			}
 		</script>
 	</div>
