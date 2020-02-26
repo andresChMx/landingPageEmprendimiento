@@ -251,7 +251,7 @@ $(function(){
 	}
 	
 	//animaties hoe het werkt
-    if($(this).scrollTop()>=hoeHetWerkt){
+    if($(this).scrollTop()>=0){
 
 		$(".menu").animate({
 		  backgroundColor: jQuery.Color( "rgba(44,44,44,1)" )
@@ -350,75 +350,7 @@ $(function(){
 		//$(".menu").css('background-color', 'rgba(44,44,44,1.0)');
 
 	}
-	
-    if($(this).scrollTop()>=deVoordelen){
-		if(T2 == false) {
-        //console.log('deVoordelen.');
-		T2 = true;
-		
-		
-		//verschijnen van de voordelen
-		$(".voordeel:first").velocity({opacity: [1,0]}, {
-		duration: 500,
-		easing: "easeInSine"});		
-		
-		setTimeout(function() {
-		$(".voordeel-active").velocity({opacity: [1,0]}, {
-		duration: 500,
-		easing: "easeInSine"});
-		}, 1000);		
-		
-		setTimeout(function() {
-		$(".voordeel:first").velocity({opacity: [0.6,1]}, {
-		duration: 500,
-		easing: "easeInSine"});	
-		$(".last-voordeel-block").velocity({opacity: [0.6,1]}, {
-		duration: 500,
-		easing: "easeInSine"});	
-		}, 1500);
 
-		setTimeout(function() {
-		$(".last-voordeel-block").velocity({opacity: [1,0]},{
-		duration: 500,
-		easing: "easeInSine"});
-
-		}, 500);
-		
-		}
-		
-		if(T2 == true){
-		
-		$(".last-voordeel-block").mouseenter(function(){
-		
-			$(".last-voordeel-block").velocity({opacity: [1,0.6]},{
-			duration: 500,
-			easing: "easeInSine"}).dequeue();
-		});
-		
-		$(".voordeel:eq(0)").mouseenter(function(){
-			$(".voordeel:eq(0)").velocity({opacity: [1,0.6]},{
-			duration: 500,
-			easing: "easeInSine"}).dequeue();
-		
-		});
-		
-		$(".voordeel:eq(0)").mouseleave(function(){
-			$(".voordeel:eq(0)").velocity({opacity: 0.75},{
-			duration: 500,
-			easing: "easeInSine"}).dequeue();
-		
-		});		
-		
-		$(".voordeel:eq(2)").mouseleave(function(){
-			$(".voordeel:eq(2)").velocity({opacity: 0.75},{
-			duration: 500,
-			easing: "easeInSine"}).dequeue();
-		
-		});		
-		
-		}	
-		
-    }
 	
 	if($(this).scrollTop()>=(verhalen-600)){
 		if(T3 == false) {
