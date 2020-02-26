@@ -81,8 +81,10 @@
 .comment__caption{
     display:inline-block;
     margin-right:15px;
+    width:50px;    
 }
 .comment__row{
+    width:795px;
     vertical-align: top;
     display:inline-block;
 }
